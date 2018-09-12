@@ -1,0 +1,106 @@
+#slideshow {
+  margin: auto;
+  overflow: hidden;
+  list-style-type: none;
+  padding: 0;
+  position: relative;
+  border: solid;
+  border-color: #000;
+}
+
+.slide-content {
+  position: relative;
+}
+
+/* Images wider than the width in the config shrink to fit and maintain aspect ratio. */
+/* However I couldn't get this working for images with heights larger than the dimentions in the config*/
+.slide-image {
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  display: block;
+}
+
+.slide-title {
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+  text-align: center;
+
+  /* The following override the default formatting for link text */
+  color: #000;
+  text-decoration: none;
+}
+
+.slide {
+  float: left;
+  display: inline-block;
+  position: absolute;
+  background-color: #fff;
+}
+
+/* The following two classes ensure that the current slide is always on top and that the previous
+slide is on top of inactive slides for the duration of it's animation */
+.previous-slide {
+  z-index: 1;
+}
+
+.active-slide {
+  z-index: 2;
+}
+
+.active-slide-in--left {
+  animation-name: slideinleft;
+  animation-duration: 1000ms;
+}
+
+.previous-slide-out--left {
+  animation-name: slideoutleft;
+  animation-duration: 1000ms;
+}
+
+.active-slide-in--right {
+  animation-name: slideinright;
+  animation-duration: 1000ms;
+}
+
+.previous-slide-out--right {
+  animation-name: slideoutright;
+  animation-duration: 1000ms;
+}
+
+@keyframes slideinleft {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0px;
+  }
+}
+
+@keyframes slideoutleft {
+  from {
+    left: 0px;
+  }
+  to {
+    left: -100%;
+  }
+}
+
+@keyframes slideinright {
+  from {
+    right: 100%;
+  }
+  to {
+    right: 0px;
+  }
+}
+
+@keyframes slideoutright {
+  from {
+    right: 0px;
+  }
+  to {
+    right: -100%;
+  }
+}
